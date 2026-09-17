@@ -100,7 +100,7 @@ if audio_data_to_process is not None:
         Farmer's Question: {farmer_text}
         """
         
-        model = genai.GenerativeModel('gemini-1.5-flash') 
+        model = genai.GenerativeModel('gemini-3.6-flash') 
         
         with st.spinner("🧠 Gemini AI is analyzing your crops and query..."):
             if leaf_image:
