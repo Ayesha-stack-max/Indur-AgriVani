@@ -6,7 +6,7 @@ import os
 from PIL import Image
 from audio_recorder_streamlit import audio_recorder
 
-api_key = st.secrets["GEMINI_API_KEY"] if "GEMINI_API_KEY" in st.secrets else os.environ.get("GEMINI_API_KEY")
+api_key = os.environ.get("GEMINI_API_KEY")
 
 if api_key:
     genai.configure(api_key=api_key)
