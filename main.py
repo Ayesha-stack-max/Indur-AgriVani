@@ -6,10 +6,12 @@ import os
 from PIL import Image
 from audio_recorder_streamlit import audio_recorder
 
-if "GEMINI_API_KEY" in st.secrets:
-    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+api_key = st.secrets["GEMINI_API_KEY"] if "GEMINI_API_KEY" in st.secrets else os.environ.get("GEMINI_API_KEY")
+
+if api_key:
+    genai.configure(api_key=api_key)
 else:
-    st.error("Please add your GEMINI_API_KEY to Streamlit Secrets.")
+    st.error("Please add your GEMINI_API_KEY to Render Environment Variables.")
 
 st.set_page_config(page_title="Indur Agrivani", page_icon="🌾", layout="centered")
 st.title("🌾 ఇందుర్ అగ్రివాణి (Indur Agrivani)")
